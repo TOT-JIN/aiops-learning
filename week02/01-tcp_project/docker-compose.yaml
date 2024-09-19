@@ -1,0 +1,21 @@
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TARGET: server  # 传递参数构建 tcp_server
+    container_name: tcp_server
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TARGET: client  # 传递参数构建 tcp_client
+    container_name: tcp_client
+    depends_on:
+      - server
+    network_mode: "service:server"  # 共享 server 容器的网络命名空间
+
