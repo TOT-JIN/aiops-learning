@@ -8,7 +8,7 @@
 
 ## 构建镜像并运行容器
 
-```
+```bash
 # docker-compose up --build -d
 Building server
 Step 1/16 : FROM golang:1.22 AS builder
@@ -196,7 +196,7 @@ Creating tcp_client ... done
 
 ## 查看容器日志输出
 
-```
+```bash
 # docker-compose logs
 Attaching to tcp_client, tcp_server
 tcp_client | Message received.
