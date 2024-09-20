@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Release.Name }}-post-delete-hook"
+  annotations:
+    "helm.sh/hook": "post-delete"
+    "helm.sh/hook-delete-policy": "hook-failed"
+spec:
+  template:
+    spec:
+      containers:
+        - name: post-delete-job
+          image: hub.17ker.top/library/busybox:latest 
+          command:
+            - sh
+            - -c
+            - |
+              echo "Helm Hook | post-delete | {{ .Release.Name }} | {{ .Values.hookMessages.postDelete }}"
+      restartPolicy: Never
+

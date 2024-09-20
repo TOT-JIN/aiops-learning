@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Release.Name }}-pre-install-hook"
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-delete-policy": "hook-failed"
+spec:
+  template:
+    spec:
+      containers:
+        - name: pre-install-job
+          image: hub.17ker.top/library/busybox:latest 
+          command:
+            - sh
+            - -c
+            - |
+              echo "Helm Hook | pre-install | {{ .Release.Name }} | {{ .Values.hookMessages.preInstall }}"
+      restartPolicy: Never
+

@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Release.Name }}-post-install-hook"
+  annotations:
+    "helm.sh/hook": "post-install"
+    "helm.sh/hook-delete-policy": "hook-failed"
+spec:
+  template:
+    spec:
+      containers:
+        - name: post-install-job
+          image: hub.17ker.top/library/busybox:latest 
+          command:
+            - sh
+            - -c
+            - |
+              echo "Helm Hook | post-install | {{ .Release.Name }} | {{ .Values.hookMessages.postInstall }}"
+      restartPolicy: Never
+
