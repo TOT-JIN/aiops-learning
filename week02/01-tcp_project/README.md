@@ -1,8 +1,12 @@
+# 多阶段构建tcp_server、tcp_client
+
 > 构建背景：
 > - 以 golang:1.22 作为构建镜像
 > - 以 ubuntu:20.04 作为运行基础镜像
 > - 在Dockerfile中应用 `ARG TARGET` 来构建时通过传参构建不同的二进制文件
 > - 使用docker-compose构建并运行两个容器，同时指定共享网络空间，以支持基于localhost访问
+
+## 构建镜像并运行容器
 
 ```
 # docker-compose up --build -d
@@ -189,6 +193,8 @@ Successfully tagged 01-tcp_project_client:latest
 Creating tcp_server ... done
 Creating tcp_client ... done
 ```
+
+## 查看容器日志输出
 
 ```
 # docker-compose logs
