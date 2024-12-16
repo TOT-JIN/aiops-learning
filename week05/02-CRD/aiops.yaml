@@ -1,0 +1,8 @@
+apiVersion: aiops.geektime.com/v1alpha1
+kind: AIOps
+metadata:
+  name: aiops-course
+  namespace: aiops
+spec:
+  classCount: 16
+  isCompleted: True
