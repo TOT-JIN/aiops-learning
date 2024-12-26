@@ -75,3 +75,6 @@
   2024-12-26T12:09:22+08:00       INFO    RAG system response     {"controller": "raglogpilot", "controllerGroup": "log.aiops.com", "controllerKind": "RagLogPilot", "RagLogPilot": {"name":"raglogpilot-sample","namespace":"default"}, "namespace": "default", "name": "raglogpilot-sample", "reconcileID": "4962aff0-1bd3-4b18-8193-e1ede65c80a9", "answer": "根据运维知识库中的信息，日志中出现的“Service 500 Error”表示下游服务出现了内部错误。针对这个问题，你应该联系r-processing 服务：小王 ##0$$\n- payment-processing 服务：小李\n- user-processing 服务：小张\n\n由于日志指明是“user-processing”服务出现了错误，因此你需要联系小张来处理这个问题。建议与小张沟通以获取更多关于错误的具体信息，并尝试找，注意检查服务的日志文件以获得更多的错误详情和上下文信息，这些信息对于定位问题至关重要。同时，了解服务的架构和依赖关系也是解决问题的关键步骤之一。"}
   
   ```
+* 飞书已收到告警
+
+  ![img.png](images/img_4.png)
