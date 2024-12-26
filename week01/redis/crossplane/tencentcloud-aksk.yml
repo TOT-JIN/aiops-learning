@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tencentcloud-aksk
+  namespace: crossplane-system
+type: Opaque
+stringData:
+  credentials: |
+    {
+      "secret_id": "********************************",
+      "secret_key": "********************************",
+      "region": "ap_xxxxxx"
+    }

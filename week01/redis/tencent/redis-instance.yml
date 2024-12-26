@@ -1,0 +1,21 @@
+apiVersion: redis.tencentcloud.crossplane.io/v1alpha1
+kind: Instance
+metadata:
+  name: example-redis-instance
+spec:
+  forProvider:
+    availabilityZone: "ap-beijing-3"
+    chargeType: "POSTPAID" # 按量付费
+    memSize: 1024 # 内存大小（MB）
+    subnetId: "subnet-p68iz9dp" # kubectl get subnet得到的EXTERNAL-NAME
+    vpcId: "vpc-1u87ahak" # kubectl get vpc得到的EXTERNAL-NAME
+    passwordSecretRef:
+      name: redis-secret
+      namespace: default
+      key: redis-password
+    typeId: 17 # Redis 7.0 Memory Edition (standard architecture)
+    tags:
+      environment: "test"
+      application: "my-app"
+  providerConfigRef:
+    name: default

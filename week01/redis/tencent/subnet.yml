@@ -1,0 +1,11 @@
+apiVersion: vpc.tencentcloud.crossplane.io/v1alpha1
+kind: Subnet
+metadata:
+  name: example-rds-subnet
+spec:
+  forProvider:
+    availabilityZone: "ap-beijing-3"
+    cidrBlock: "10.2.2.0/24"
+    name: "test-crossplane-rds-subnet"
+    vpcIdRef:
+      name: "example-rds-vpc"
